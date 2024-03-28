@@ -32,8 +32,8 @@ You can also remove all Pokémon from the layout by entering 'clear':
 `clear`
 
 ### Change Card Image
-[!WARNING]
-This does nothing on the minimal version as you only have one card per Pokémon
+> [!NOTE]
+> This does nothing on the minimal version as you only have one card per Pokémon
 
 Sometimes the card doesn't look the best for a particular Pokémon, to get the next available card, type the slot of the Pokémon, followed by a space, and then the letter 'r':
 
@@ -52,8 +52,8 @@ Sometimes the card doesn't look the best for a particular Pokémon, to get the n
 ![](readme/chroma_key.png)
 
 # Building Exe
-[!WARNING]
-Windows likes to flag the exes as viruses, you may have to make an exception for them.
+> [!WARNING]
+> Windows likes to flag the exes as viruses, you may have to make an exception for them.
 
 To build the exe's, first we need to install the requirements:
 
