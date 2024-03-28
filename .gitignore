@@ -1,0 +1,8 @@
+build
+build_minimal
+dist
+dist_minimal
+rsc
+rsc.zip
+.venv
+minimal_cards
