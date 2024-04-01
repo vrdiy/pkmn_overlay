@@ -6,7 +6,7 @@ from PIL import Image
 import pygame 
 
 ASPECT_RATIO = 474/280
-RESOLUTION = (1920,1080)
+RESOLUTION = (1280,720)
 #LEFT = 0.126
 #UPPER = 0.133
 #RIGHT = 0.916

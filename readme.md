@@ -2,13 +2,6 @@
 
 This app lets you showcase your party Pokémon with art from the TCG for use in broadcasting software.
 ![](readme/banner.png)
-## Setup
-This app was built using Python 3.12.
-- Download the card art here: https://drive.google.com/file/d/12OxKjOa3NmDUt2yFM7HZ28E7sQ7uEecP/view?usp=drive_link
-- Extract and place the `rsc/` folder you just downloaded into the root directory of this project.
-- Create and activate a virtual environment in the root directory of this project
-- `pip install -r requirements.txt`
-- `python pkmn_overlay.py`
     
 ## Controls
 
@@ -51,21 +44,31 @@ Sometimes the card doesn't look the best for a particular Pokémon, to get the n
 
 ![](readme/chroma_key.png)
 
-# Building Exe
-[!WARNING]
-Windows likes to flag the exes as viruses, you may have to make an exception for them.
 
-To build the exe's, first we need to install the requirements:
+## Manual Setup
+[!TIP]
+If you are just looking for a ready-to-go application, just go to <a href="https://github.com/vrdiy/pkmn_overlay/releases/">releases</a> and you can find bundled distributions of the app. The following section is primarily for those who would prefer to 
+You will need Python, and I recommend creating a virtual environment just for this application, for info on setting up a virtual environment see this: https://docs.python.org/3/library/venv.html
+ 
+1. Download the card art here: https://drive.google.com/file/d/12OxKjOa3NmDUt2yFM7HZ28E7sQ7uEecP/view?usp=drive_link
+2. Extract and place the `rsc/` folder you just downloaded into the root directory of this project.
+3. Create and activate a virtual environment in the root directory of this project
+4. `pip install -r requirements.txt`
+5. `python pkmn_overlay.py`
 
-`pip install -r requirements.txt`
+# Building Exe Nuitka
 
-Then for a minimal build (1 of each card):
+To build the exes using Nuitka first install it:
 
-`pyinstaller --distpath dist_minimal --workpath build_minimal build_minimal.spec`
+`pip install nuitka`
 
-Or for a full build (Up to 5 of each card):
+Minimal (1 of each card):
 
-`pyinstaller --distpath dist --workpath build build.spec`
+`python -m nuitka --standalone --include-data-dir=rsc/minimal_cards=rsc/cards --include-data-files=rsc/pokeball_minimal.ico=rsc/pokeball.ico --include-data-files=rsc/pokemon_names.txt=rsc/ --standalone --windows-icon-from-ico=rsc/pokeball_minimal.ico --disable-console --output-dir=pkmn_overlay_minimal --output-filename="Pkmn Overlay - Minimal.exe" pkmn_overlay.py`
+
+Full (Up to 5 of each card):
+
+`python -m nuitka --standalone --include-data-dir=rsc/cards=rsc/cards --include-data-files=rsc/pokeball.ico=rsc/ --include-data-files=rsc/pokemon_names.txt=rsc/ --standalone --windows-icon-from-ico=rsc/pokeball.ico --disable-console --output-dir=pkmn_overlay --output-filename="Pkmn Overlay.exe" pkmn_overlay.py`
 
 # Special Mentions
 Card images sourced from https://pkmncards.com/ <3
